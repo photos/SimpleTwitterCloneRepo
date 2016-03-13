@@ -7,15 +7,28 @@
 //
 
 import UIKit
+import Parse
+import Bolts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        // Nav appearance
+        UINavigationBar.appearance().barTintColor = UIColor(red: 0.0/256, green: 204.0/256, blue: 153.0/256, alpha: 1)
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("46EsqrfoOdBAfYcRcO3J91TY3CMnhZBNlqUx07Lu",
+            clientKey: "UnW6FE4gQzlepoJhHyzC5LgJp4Gfgltrg6niY2Lc")
+        
+        // [Optional] Track statistics around application opens.
+        PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         return true
     }
 
@@ -40,7 +53,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
 
